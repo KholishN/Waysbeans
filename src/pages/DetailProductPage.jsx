@@ -41,7 +41,7 @@ export default function DetailProductPage() {
       });
       await API.post("/cart", body, config);
 
-      // navigate("/cart");
+      navigate("/cart");
     } catch (error) {
       console.log(error);
     }

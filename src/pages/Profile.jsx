@@ -16,7 +16,6 @@ import { UserContext } from "../context/UserContext";
 
 export default function Profile() {
   const [state] = useContext(UserContext);
-  console.log(state);
   let { data: transactions } = useQuery("transactionsCache", async () => {
     const response = await API.get("/user-transaction");
     return response.data.data;

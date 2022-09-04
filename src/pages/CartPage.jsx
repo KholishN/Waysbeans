@@ -35,7 +35,6 @@ export default function CartPage() {
     return response.data.data;
   });
 
-
   // subtotal
   let resultTotal = cart?.reduce((a, b) => {
     return a + b.qty * b.subtotal;
@@ -102,7 +101,7 @@ export default function CartPage() {
     //change this to the script source you want to load, for example this is snap.js sandbox env
     const midtransScriptUrl = "https://app.sandbox.midtrans.com/snap/snap.js";
     //change this according to your client-key
-    const myMidtransClientKey = "Client key here ...";
+    const myMidtransClientKey = process.env.REACT_APP_MIDTRANS_CLIENT_KEY;
 
     let scriptTag = document.createElement("script");
     scriptTag.src = midtransScriptUrl;

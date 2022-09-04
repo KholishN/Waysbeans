@@ -90,7 +90,6 @@ export default function UpdateProduct() {
     }
   });
 
-  console.log(form);
   return (
     <>
       <Navbar />
