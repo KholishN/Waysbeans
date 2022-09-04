@@ -168,7 +168,7 @@ func (h *handlersAuth) CheckAuth(w http.ResponseWriter, r *http.Request) {
 		Status:     user.Status,
 		PostalCode: user.PostalCode,
 		Address:    user.Address,
-		Image:      os.Getenv("PATH_FILE") + user.Image,
+		Image:      user.Image,
 	}
 
 	w.Header().Set("Content-Type", "application/json")
