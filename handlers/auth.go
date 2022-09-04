@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -15,6 +16,8 @@ import (
 	jwtToken "waysbeans/pkg/jwt"
 	"waysbeans/repositories"
 
+	"github.com/cloudinary/cloudinary-go/v2"
+	"github.com/cloudinary/cloudinary-go/v2/api/uploader"
 	"github.com/golang-jwt/jwt/v4"
 )
 
@@ -30,7 +33,7 @@ func (h *handlersAuth) Register(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
 	dataContex := r.Context().Value("dataFile")
-	filename := dataContex.(string)
+	filepath := dataContex.(string)
 
 	postalcode, _ := strconv.Atoi(r.FormValue("postal_code"))
 	request := authdto.RegisterRequest{
@@ -49,11 +52,22 @@ func (h *handlersAuth) Register(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	var ctx = context.Background()
+	var CLOUD_NAME = os.Getenv("CLOUD_NAME")
+	var API_KEY = os.Getenv("API_KEY")
+	var API_SECRET = os.Getenv("API_SECRET")
+
+	cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET)
+	resp, err := cld.Upload.Upload(ctx, filepath, uploader.UploadParams{Folder: "Waysbeans"})
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
 	user := models.User{
 		Name:       request.Name,
 		Email:      request.Email,
 		Password:   password,
-		Image:      filename,
+		Image:      resp.SecureURL,
 		Address:    request.Address,
 		PostalCode: request.PostalCode,
 		Status:     "customer",

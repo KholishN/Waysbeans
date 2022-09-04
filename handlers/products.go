@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -11,6 +12,8 @@ import (
 	"waysbeans/models"
 	"waysbeans/repositories"
 
+	"github.com/cloudinary/cloudinary-go/v2"
+	"github.com/cloudinary/cloudinary-go/v2/api/uploader"
 	"github.com/gorilla/mux"
 )
 
@@ -64,7 +67,7 @@ func (h *handlersProduct) CreateProduct(w http.ResponseWriter, r *http.Request) 
 	w.Header().Set("Content-Type", "application/json")
 
 	dataContex := r.Context().Value("dataFile")
-	filename := dataContex.(string)
+	filepath := dataContex.(string)
 
 	price, _ := strconv.Atoi(r.FormValue("price"))
 	stock, _ := strconv.Atoi(r.FormValue("stock"))
@@ -75,10 +78,21 @@ func (h *handlersProduct) CreateProduct(w http.ResponseWriter, r *http.Request) 
 		Stock: stock,
 	}
 
+	var ctx = context.Background()
+	var CLOUD_NAME = os.Getenv("CLOUD_NAME")
+	var API_KEY = os.Getenv("API_KEY")
+	var API_SECRET = os.Getenv("API_SECRET")
+
+	cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET)
+	resp, err := cld.Upload.Upload(ctx, filepath, uploader.UploadParams{Folder: "Waysbeans"})
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
 	product := models.Product{
 		Title: request.Title,
 		Price: request.Price,
-		Image: filename,
+		Image: resp.SecureURL,
 		Stock: request.Stock,
 		Desc:  request.Desc,
 	}
@@ -99,7 +113,7 @@ func (h *handlersProduct) UpdateProduct(w http.ResponseWriter, r *http.Request) 
 	w.Header().Set("Content-Type", "application/json")
 
 	dataContex := r.Context().Value("dataFile")
-	filename := dataContex.(string)
+	filepath := dataContex.(string)
 
 	price, _ := strconv.Atoi(r.FormValue("price"))
 	stock, _ := strconv.Atoi(r.FormValue("stock"))
@@ -107,11 +121,9 @@ func (h *handlersProduct) UpdateProduct(w http.ResponseWriter, r *http.Request) 
 		Title: r.FormValue("title"),
 		Price: price,
 		Desc:  r.FormValue("desc"),
-		Image: filename,
+		Image: filepath,
 		Stock: stock,
 	}
-
-	fmt.Println(request)
 
 	id, _ := strconv.Atoi(mux.Vars(r)["id"])
 	product, err := h.ProductRepository.GetProduct(int(id))
@@ -130,8 +142,8 @@ func (h *handlersProduct) UpdateProduct(w http.ResponseWriter, r *http.Request) 
 		product.Price = request.Price
 	}
 
-	if filename != "false" {
-		product.Image = filename
+	if filepath != "false" {
+		product.Image = filepath
 	}
 
 	if request.Desc != "" {
