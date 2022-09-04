@@ -136,7 +136,7 @@ func (h *handlersAuth) Login(w http.ResponseWriter, r *http.Request) {
 		Token:      token,
 		Status:     user.Status,
 		Address:    user.Address,
-		Image:      os.Getenv("PATH_FILE") + user.Image,
+		Image:      user.Image,
 		PostalCode: user.PostalCode,
 	}
 
