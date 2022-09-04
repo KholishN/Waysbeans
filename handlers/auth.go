@@ -8,12 +8,12 @@ import (
 	"os"
 	"strconv"
 	"time"
-	authdto "waysbucks/dto/auth"
-	dto "waysbucks/dto/result"
-	"waysbucks/models"
-	"waysbucks/pkg/bcrypt"
-	jwtToken "waysbucks/pkg/jwt"
-	"waysbucks/repositories"
+	authdto "waysbeans/dto/auth"
+	dto "waysbeans/dto/result"
+	"waysbeans/models"
+	"waysbeans/pkg/bcrypt"
+	jwtToken "waysbeans/pkg/jwt"
+	"waysbeans/repositories"
 
 	"github.com/golang-jwt/jwt/v4"
 )

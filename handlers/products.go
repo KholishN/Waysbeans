@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"os"
 	"strconv"
-	productdto "waysbucks/dto/product"
-	dto "waysbucks/dto/result"
-	"waysbucks/models"
-	"waysbucks/repositories"
+	productdto "waysbeans/dto/product"
+	dto "waysbeans/dto/result"
+	"waysbeans/models"
+	"waysbeans/repositories"
 
 	"github.com/gorilla/mux"
 )

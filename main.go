@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	"waysbucks/database"
-	"waysbucks/pkg/mysql"
-	"waysbucks/routes"
+	"waysbeans/database"
+	"waysbeans/pkg/mysql"
+	"waysbeans/routes"
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"

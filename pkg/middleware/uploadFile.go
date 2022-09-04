@@ -7,7 +7,7 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
-	dto "waysbucks/dto/result"
+	dto "waysbeans/dto/result"
 )
 
 func UploadFile(next http.HandlerFunc) http.HandlerFunc {

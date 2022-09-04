@@ -2,8 +2,8 @@ package database
 
 import (
 	"fmt"
-	"waysbucks/models"
-	"waysbucks/pkg/mysql"
+	"waysbeans/models"
+	"waysbeans/pkg/mysql"
 )
 
 func RunMigration() {

@@ -2,7 +2,7 @@ package repositories
 
 import (
 	"fmt"
-	"waysbucks/models"
+	"waysbeans/models"
 
 	"gorm.io/gorm"
 )

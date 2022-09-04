@@ -1,4 +1,4 @@
-module waysbucks
+module waysbeans
 
 go 1.18
 
