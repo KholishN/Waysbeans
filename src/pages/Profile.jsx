@@ -47,12 +47,7 @@ export default function Profile() {
               <div className="contentCardLeft">
                 {item?.product?.map((data, idx) => (
                   <div className="mapContent" key={idx}>
-                    <img
-                      src={
-                        "http://localhost:5000/uploads/" + data?.product?.image
-                      }
-                      alt="coffee"
-                    />
+                    <img src={data?.product?.image} alt="coffee" />
                     <ul>
                       <li className="profileCardTitle">
                         {data?.product?.title}
