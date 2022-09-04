@@ -5,7 +5,7 @@ import App from './App';
 import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter } from 'react-router-dom';
 
-import Favicon from "./assets/Logo.svg"
+import Favicon from "./assets/logo_waysbeans.svg"
 const favicon = document.getElementById('idFavicon');
 favicon.setAttribute('href', Favicon);
 

@@ -5,7 +5,7 @@ import QRCode from "react-qr-code";
 import Rupiah from "rupiah-format";
 
 // logo
-import Logo from "../../assets/Logo.svg";
+import Logo from "../../assets/logo_waysbeans.svg";
 
 // fakedata
 let dummyTransaction;
