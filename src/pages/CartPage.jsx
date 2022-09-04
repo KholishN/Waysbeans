@@ -13,8 +13,6 @@ import ModalCart from "../components/modal/modalCart";
 import Navbar from "../components/navbar/navbar";
 import { useMutation, useQuery } from "react-query";
 import { API } from "../config/Api";
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -26,7 +24,6 @@ export default function CartPage() {
   const navigate = useNavigate;
   // modal
   const [showTrans, setShowTrans] = useState(false);
-  const [idProduct, setIdProduct] = useState([]);
   const handleClose = () => setShowTrans(false);
 
   // cart

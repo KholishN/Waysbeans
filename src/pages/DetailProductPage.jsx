@@ -1,8 +1,7 @@
 // dependencies
 import { useNavigate, useParams } from "react-router-dom";
 import Rupiah from "rupiah-format";
-import { useState } from "react";
-import { useMutation, useQuery } from "react-query";
+import { useQuery } from "react-query";
 
 // style
 import productModules from "../styles/product.module.css";
