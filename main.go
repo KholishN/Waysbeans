@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 	"waysbucks/database"
 	"waysbucks/pkg/mysql"
 	"waysbucks/routes"
@@ -31,7 +32,8 @@ func main() {
 	var AllowedOrigins = handlers.AllowedOrigins([]string{"*"})
 
 	r.PathPrefix("/uploads").Handler(http.StripPrefix("/uploads/", http.FileServer(http.Dir("./uploads"))))
-	//try
-	fmt.Println("Server Running on localhost:5000")
-	http.ListenAndServe("localhost:5000", handlers.CORS(AllowedHeaders, AllowedMethods, AllowedOrigins)(r))
+
+	var port = os.Getenv("PORT")
+	fmt.Println("Server Running on localhost:" + port)
+	http.ListenAndServe(":"+port, handlers.CORS(AllowedHeaders, AllowedMethods, AllowedOrigins)(r))
 }
