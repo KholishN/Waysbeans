@@ -4,9 +4,9 @@ import { useContext } from "react";
 import { Container } from "react-bootstrap";
 import QRCode from "react-qr-code";
 import { useQuery } from "react-query";
+import Rupiah from "rupiah-format";
 
 // file
-import PhotoProfile from "../assets/Ellipse 1.png";
 import Logo from "../assets/logo_waysbeans.svg";
 
 // component
@@ -63,11 +63,12 @@ export default function Profile() {
                       </li>
                       <li className="profileCardToping">Qty: {data?.qty}</li>
                       <li className="profileCardPrice">
-                        Price: {data?.product?.price}
+                        Price: {Rupiah.convert(data?.product?.price)}
                       </li>
                       <li className="profileCardToping">
                         <strong>
-                          Sub Total : {data?.qty * data?.product?.price}
+                          Sub Total :{" "}
+                          {Rupiah.convert(data?.qty * data?.product?.price)}
                         </strong>
                       </li>
                     </ul>

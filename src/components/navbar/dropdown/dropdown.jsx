@@ -5,7 +5,6 @@ import { UserContext } from "../../../context/UserContext";
 import { Link, useNavigate } from "react-router-dom";
 
 // files
-import Photo from "../../../assets/Ellipse 1.png";
 import Profile from "../../../assets/profile_waysbeens.png";
 import AddProduct from "../../../assets/addBeens.png";
 import Logout from "../../../assets/logout 1.png";
