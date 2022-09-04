@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,800;1,400&display=swap");
+
+
+.landing_page{
+  margin-top:50px;
+  color: black
+}
+.reactangle{
+  width: 1090px;
+  height: 402px;
+  background-image: url(../assets/hero-bg.png);
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  
+}
+
+.pitc{
+  position: relative;
+  left: 60px;
+  bottom: 15px ;
+}
+
+/* font */
+*{
+  font-family: "Nunito", sa ns-serif;
+}
+
+span{
+  display: block;
+}
+.text_inside{
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* border: 1px solid black; */
+  padding: 0 0 0 60px;
+}
+.landing_page span>h3{
+  font-size: 54px;
+  font-weight:900;
+}
+
+.p1{
+  font-size: 23px;
+  /* font-weight:900
+  ; */
+}
+.landing_page span p>p2{
+  /* margin-top: 20px; */
+  font-size: 17px;
+}
+.landing_page span p p2>p3{
+  font-weight: 700;
+}
+.landofdown{
+  display: flex;
+}
+.textofdown p{
+  padding: 50px 0 20px 140px;
+  color:#613D2B;
+  display: block;
+  position: block;
+  left: 150px;
+  font-size: 35px;
+  font-weight: 700; 
+  /* margin-left: 150px; */
+}
+
+.card3{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 0 80px 0px;
+  /* border:1px solid black;
+  margin-left: 50px; */
+
+}
+.card2{
+  background-color: #F6E6DA
+  /* width: 15rem;
+  height: 10rem; */
+}
+
+
+
+/* card */
+.landofdown{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  column-gap: 30px;
+  row-gap: 50px;
+  /* border: 1px solid black; */
+  width: 65rem;
+  height: 55rem;
+  /* border: 1px solid black; */
+  margin: 0 0 0 200px;
+}
+.imageP{
+  width: 100%;
+  border-radius: 10px 0px ;
+  height: 300px;
+}
+
+.card1{
+  background-color: #F6E6DA;
+  border-radius: 20px;
+  width: 250px;
+  height: 400px;
+}
+.card2{
+  /* border: 1px solid red; */
+  padding: 0 0 0 10px;
+  
+}
+
+
+
+/* card */
+
+
+/* font */
+.text1{
+  color: #613D2B;
+  font-size: 21px;
+  font-weight: 900;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+.text2{
+  color:#974A4A;
+  font-size: 17px;
+  font-weight: 100;
+  font-weight: 400;
+  margin-left: 10px;
+  margin-bottom: 0;
+}

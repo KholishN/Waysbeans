@@ -1,0 +1,20 @@
+.bg_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+.textName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    /* width: 900px; */
+}
+.textName>p{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(44, 196, 44);
+    border: none;
+}
