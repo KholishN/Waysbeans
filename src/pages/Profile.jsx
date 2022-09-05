@@ -84,7 +84,9 @@ export default function Profile() {
                 <span>
                   <p>{item?.status}</p>
                 </span>
-                <p className="profileSubTotal">Total : {item?.total}</p>
+                <p className="profileSubTotal">
+                  Total : {Rupiah.convert(item?.total)}
+                </p>
               </div>
             </div>
           ))}
