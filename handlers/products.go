@@ -111,13 +111,24 @@ func (h *handlersProduct) UpdateProduct(w http.ResponseWriter, r *http.Request) 
 	dataContex := r.Context().Value("dataFile")
 	filepath := dataContex.(string)
 
+	var ctx = context.Background()
+	var CLOUD_NAME = os.Getenv("CLOUD_NAME")
+	var API_KEY = os.Getenv("API_KEY")
+	var API_SECRET = os.Getenv("API_SECRET")
+
+	cld, _ := cloudinary.NewFromParams(CLOUD_NAME, API_KEY, API_SECRET)
+	resp, err := cld.Upload.Upload(ctx, filepath, uploader.UploadParams{Folder: "waysbeans"})
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+
 	price, _ := strconv.Atoi(r.FormValue("price"))
 	stock, _ := strconv.Atoi(r.FormValue("stock"))
 	request := productdto.CreateProduct{
 		Title: r.FormValue("title"),
 		Price: price,
 		Desc:  r.FormValue("desc"),
-		Image: filepath,
+		Image: resp.SecureURL,
 		Stock: stock,
 	}
 
