@@ -209,7 +209,7 @@ export default function ModalAuth({ show, setShow }) {
                   previewName === "" ? "addProductImagee" : "previewNamee"
                 }
               >
-                {previewName === "" ? "Photo Product" : previewName}
+                {previewName === "" ? "Photo Profile" : previewName}
                 <img src={paperClip} alt="paperClip" />
               </label>
               <button className="btnAuth" type="submit">
