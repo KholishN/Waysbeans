@@ -53,7 +53,7 @@ export default function Transaction() {
                   <td>{index + 1}</td>
                   <td>{item?.user?.name}</td>
                   <td>{item?.user?.address}</td>
-                  <td>{item?.user?.postCode}</td>
+                  <td>{item?.user?.postal_code}</td>
                   <td className="tablePrice">{Rupiah.convert(item?.total)}</td>
                   <td
                     className={
