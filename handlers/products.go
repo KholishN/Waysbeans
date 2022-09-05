@@ -150,7 +150,7 @@ func (h *handlersProduct) UpdateProduct(w http.ResponseWriter, r *http.Request) 
 	}
 
 	if filepath != "false" {
-		product.Image = filepath
+		product.Image = product.Image
 	}
 
 	if request.Desc != "" {
