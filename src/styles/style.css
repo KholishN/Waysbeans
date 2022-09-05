@@ -551,6 +551,10 @@ table{
 
 }
 
+.tableDesc{
+    max-width: 300px;
+}
+
 
 th{
     background-color: #e5e5e595 !important;

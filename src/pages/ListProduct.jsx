@@ -89,7 +89,7 @@ export default function ListProduct() {
                   <td>{item.title}</td>
                   <td>{item.stock}</td>
                   <td className="tablePrice">{Rupiah.convert(item.price)}</td>
-                  <td>{item.desc}</td>
+                  <td className="tableDesc">{item.desc}</td>
                   <td>
                     <button
                       className="btnDelt"
